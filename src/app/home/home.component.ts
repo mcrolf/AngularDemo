@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HousingLocationComponent } from '../housing-location/housing-location.component';
-import { Housinglocation } from '../housinglocation';
+import { HousingLocation } from '../housinglocation';
 import { HousingService } from '../housing.service';
 
 @Component({
@@ -28,7 +28,7 @@ import { HousingService } from '../housing.service';
 export class HomeComponent {
   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
 
-  housingLocation: Housinglocation = {
+  housingLocation: HousingLocation = {
     id: 9999,
     name: 'Test Home',
     city: 'Test city',
@@ -39,7 +39,7 @@ export class HomeComponent {
     laundry: false,
   };
 
-  housingLocationList: Housinglocation[]= [];
+  housingLocationList: HousingLocation[]= [];
 
   housingService: HousingService = inject(HousingService);
 

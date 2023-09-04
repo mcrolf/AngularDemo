@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Housinglocation } from '../housinglocation';
+import { HousingLocation } from '../housinglocation';
 import { RouterLink } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 
@@ -18,5 +18,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./housing-location.component.less']
 })
 export class HousingLocationComponent {
-  @Input() housingLocation!: Housinglocation;
+  @Input() housingLocation!: HousingLocation;
 }
