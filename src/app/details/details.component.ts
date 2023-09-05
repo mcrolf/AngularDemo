@@ -59,9 +59,12 @@ export class DetailsComponent {
   });
   
   constructor(){
-    const housingLocationId = Number(this.route.snapshot.params['id']);
-    this.housingLocation = 
-    this.housingServcie.getHousingLocationById(housingLocationId);
+    
+    const housingLocationId = parseInt(this.route.snapshot.params['id'], 10);
+    this.housingServcie.getHousingLocationById(housingLocationId).
+    then(housingLocation => {
+      this.housingLocation = this.housingLocation;
+    });
   }
 
   //handle the "apply now" click

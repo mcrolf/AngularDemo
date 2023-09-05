@@ -26,18 +26,6 @@ import { HousingService } from '../housing.service';
 })
 
 export class HomeComponent {
-  readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
-
-  housingLocation: HousingLocation = {
-    id: 9999,
-    name: 'Test Home',
-    city: 'Test city',
-    state: 'ST',
-    photo: `${this.baseUrl}/example-house.jpg`,
-    availableUnits: 99,
-    wifi: true,
-    laundry: false,
-  };
 
   //event handler for search filtering
   filterResults(text: string){
@@ -58,8 +46,12 @@ export class HomeComponent {
   filteredLocationList: HousingLocation[] = [];
 
   constructor(){
-    this.housingLocationList = this.housingService.getAllHousingLocations();
-    this.filteredLocationList = this.housingLocationList;
+    
+    this.housingService.getAllHousingLocations().then((housingLocationList:
+      HousingLocation[]) => {
+        this.housingLocationList = housingLocationList;
+        this.filteredLocationList = housingLocationList;
+      });
   }
   
 }
