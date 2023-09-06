@@ -8,7 +8,8 @@ import { HousingService } from '../housing.service';
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule,
-  HousingLocationComponent],
+  HousingLocationComponent
+],
   template:`
   <section>
     <form>
