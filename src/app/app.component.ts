@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { HomeComponent } from './home/home.component';
-import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     HomeComponent,
-    RouterModule,
-    HttpClientModule
+    RouterLink,
+    RouterOutlet
   ],
   styleUrls: ['./app.component.less'],
   template: `<main>

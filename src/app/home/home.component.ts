@@ -19,14 +19,28 @@ import { HousingService } from '../housing.service';
   </section>
   <section class="results">
     <app-housing-location 
-      [housingLocation]="housingLocation"
-      *ngFor="let housingLocation of filteredLocationList">
+    *ngFor="let housingLocation of filteredLocationList"
+        [housingLocation]="housingLocation">
     </app-housing-location>
   </section>`,
   styleUrls: ['./home.component.less']
 })
 
 export class HomeComponent {
+
+  housingLocationList: HousingLocation[]= [];
+  housingService: HousingService = inject(HousingService);
+  filteredLocationList: HousingLocation[] = [];
+
+  constructor(){
+    this.housingService.getAllHousingLocations().then((housingLocationList:
+      HousingLocation[]) => {
+        this.housingLocationList = housingLocationList;
+        this.filteredLocationList = housingLocationList;
+      });
+
+      console.log("housing service" + this.housingLocationList.toString());
+  }
 
   //event handler for search filtering
   filterResults(text: string){
@@ -38,21 +52,6 @@ export class HomeComponent {
       housingLocation =>
       housingLocation?.city.toLowerCase().includes(text.toLowerCase())
     );
-  }
-
-  housingLocationList: HousingLocation[]= [];
-
-  housingService: HousingService = inject(HousingService);
-
-  filteredLocationList: HousingLocation[] = [];
-
-  constructor(){
-    
-    this.housingService.getAllHousingLocations().then((housingLocationList:
-      HousingLocation[]) => {
-        this.housingLocationList = housingLocationList;
-        this.filteredLocationList = housingLocationList;
-      });
   }
   
 }
